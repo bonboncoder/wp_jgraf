@@ -1,0 +1,13 @@
+/*
+Theme Name: janagraf
+Theme URI: http://bonbonbuero.de
+Description: This theme is based on "Starkers theme" http://elliotjaystocks.com
+Version: 0.1
+Author: coder@bonbonbuero.de
+Author URI: http://bonbonbuero.de
+Tags: bonbonbuero, starkers
+*/
+
+@import "css/reset.css";
+@import "css/typography.css";
+@import "css/layout.css";
