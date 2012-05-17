@@ -1,27 +1,33 @@
-<?php
-/**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query. 
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Starkers
- * @since Starkers 3.0
- */
+<?php get_header(); ?>
 
-get_header(); ?>
+        <div id="sidebar">
 
-			<?php
-			/* Run the loop to output the posts.
-			 * If you want to overload this in a child theme then include a file
-			 * called loop-index.php and that will be used instead.
-			 */
-			 get_template_part( 'loop', 'index' );
-			?>
+            <?php get_sidebar(); ?>
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+        </div><!-- sidebar -->
+
+        <div id="content">
+
+            <?php
+            $zindex = 100;
+            $marginleft = 50;
+            foreach (get_categories() as $category) {
+            	query_posts('cat='.$category->term_id);
+            	if (have_posts()) {
+            ?>
+			<div class="column" style="margin-left: <?php echo $marginleft; ?>px; z-index: <?php echo $zindex--; ?>">
+            <?php
+            		$marginleft += 270;
+            		while (have_posts()) {
+	            		echo do_shortcode('[gallery_edit columns="1" id='.the_post().' orderby="title" size="thumbnail"]');
+            		}
+            ?>
+            </div>
+            
+            <?php }
+            } ?>
+
+        </div>
+
+<!-- end index.php -->
+<?php get_footer() ?>
