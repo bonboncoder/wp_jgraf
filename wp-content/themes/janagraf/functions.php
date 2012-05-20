@@ -119,10 +119,19 @@
 		$output = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
 	
 		$i = 0;
+		$rnd = rand($i, sizeof($attachments));
+		$cont = get_post($id)->post_content;
 		foreach ( $attachments as $id => $attachment ) {
+			if ($cont != '' && $i == $rnd) {
+				$output .= '<div class="news">'
+							. $cont .
+							'</div>
+							<br style="clear: both;" />';
+			}
+			$thumb_img_url = wp_get_attachment_image_src($id, 'thumbnail');
 			$medium_img_url = wp_get_attachment_image_src($id, 'medium');
 			$cap = wptexturize($attachment->post_content);
-			$link = '<a href="' . $medium_img_url[0] . '" target="_blank" title="' . $cap . '" id="img' . $img_instance . '" onclick="swapImg(\'img'. $img_instance++ . '\', \'' . $medium_img_url[0] .'\', \'' . $medium_img_url[1] . '\', \'' . $medium_img_url[2] . '\'); return false;">'
+			$link = '<a href="' . $medium_img_url[0] . '" target="_blank" title="' . $cap . '" id="img' . $img_instance . '" onclick="return enlargeImg(\'img'. $img_instance++ . '\', \'' . $medium_img_url[0] .'\', \'' . $thumb_img_url[1] . '\', \'' . $thumb_img_url[2] .'\', \'' . $medium_img_url[1] . '\', \'' . $medium_img_url[2] . '\');">'
 						. wp_get_attachment_image($id, 'thumbnail') .
 					'</a>';
 			$cap2 = "<{$captiontag} class='gallery-caption'>"
@@ -132,6 +141,13 @@
 			
 			if ( $columns > 0 && ++$i % $columns == 0 )
 				$output .= '<br style="clear: both" />';
+		}
+		//if random chooses news to be at the end
+		if ($cont != '' && $rnd == sizeof($attachments)) {
+			$output .= '<div class="news">'
+			. $cont .
+			'</div>
+			<br style="clear: both;" />';
 		}
 	
 		$output .= "

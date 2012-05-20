@@ -60,9 +60,7 @@ a img {
 -------------------------------------------------------------- */
 
 a, a:hover, a:visited {
-    color: #000;
-    font: normal 10px "Courier New", Courier, monospace;
-    letter-spacing: 2px;
+    color: #F90801;
     text-decoration: underline;
 }
 
@@ -72,9 +70,9 @@ a:focus {
 
 body {
     color: #000;
-    font: normal 10px Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font: normal 18px Arial, Helvetica, sans-serif;
     height: 100%;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     width: 100%;
 }
 
@@ -90,28 +88,44 @@ noscript.gg {
 
 .column {
 	float: left;
+	padding-top: 20px;
 	position: absolute;
 	width: 250px;
 }
 
-#content {
-    background-color: #FFF;
-    bottom: 0;
-    left: 15px;
-    position: absolute;
-    right: 0;
-    top: 140px;
+.column_title {
+	float: left;
+	font: normal 120% Arial, Helvetica, sans-serif;
+	position: absolute;
+	text-align: center;
+	width: 25px;
 }
 
-#imp {
-    height: 39px;
-    margin-top: 13px;
-    width: 13px;
+.column_title_year {
+	color: #F90801;
+	margin-top: 10px;
+}
+
+#content {
+    background-color: #FFF;
+    position: absolute;
+    top: 100px;
 }
 
 #info {
-    height: 579px;
-    width: 13px;
+	background-color: white;
+	width: 550px;
+	z-index: 200;
+}
+
+#info,
+#info_link {
+	left: 640px;
+	position: absolute;
+}
+
+#info_link a {
+	color: black;
 }
 
 #page {
@@ -120,17 +134,29 @@ noscript.gg {
     width: 100%;
 }
 
-.page-template-impressum-php {
-    background-color: #000;
+.shadow_blue {
+	font: normal 100% 'Courier New', Courier, monospace;
+	text-shadow: 1px 1px 1px blue;
 }
 
-.page-template-impressum-php #content {
-    left: 30px;
+.shadow_green {
+	font: normal 100% 'Courier New', Courier, monospace;
+	text-shadow: 1px 1px 1px green;
 }
 
-.page-template-impressum-php #content p {
-    margin-bottom: 11px;
+.shadow_red {
+	font: normal 120% 'Courier New', Courier, monospace;
+	text-shadow: 1px 1px 1px red;
+}
+
+.shadow_yellow {
+	font: normal 110% 'Courier New', Courier, monospace;
+	text-shadow: 1px 1px 1px yellow;
 }
 
 #sidebar {
+	left: 50px;
+    letter-spacing: 3px;
+    position: absolute;
+    top: 50px;
 }
