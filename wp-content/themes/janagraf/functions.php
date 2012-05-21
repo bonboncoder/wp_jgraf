@@ -119,14 +119,31 @@
 		$output = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
 	
 		$i = 0;
-		$rnd = rand($i, sizeof($attachments));
+		$rnd = rand($i, sizeof($attachments)-1);
 		$cont = get_post($id)->post_content;
+		$news_head = get_post_meta($id, 'news_head', true);
+		$news_when = get_post_meta($id, 'news_when', true);
+		$news_what = get_post_meta($id, 'news_what', true);
+		$news_where = get_post_meta($id, 'news_where', true);
+		$news_content = '';
+		if ($news_head != '') {
+			$news_content .= '<span class="news_head">' . $news_head . '</span><br />';
+		}
+		if ($news_when != '') {
+			$news_content .= '<span class="news_when">' . $news_when . '</span><br />';
+		}
+		if ($news_what != '') {
+			$news_content .= '<span class="news_what">' . $news_what . '</span><br />';
+		}
+		if ($news_where != '') {
+			$news_content .= '<span class="news_where">' . $news_where . '</span>';
+		}
 		foreach ( $attachments as $id => $attachment ) {
-			if ($cont != '' && $i == $rnd) {
+			if ($news_content != '' && $i == $rnd) {
 				$output .= '<div class="news">'
-							. $cont .
+							. $news_content .
 							'</div>
-							<br style="clear: both;" />';
+							<br style="clear: both; line-height: 1.3em;" />';
 			}
 			$thumb_img_url = wp_get_attachment_image_src($id, 'thumbnail');
 			$medium_img_url = wp_get_attachment_image_src($id, 'medium');
@@ -140,19 +157,17 @@
 			$output .= "<{$icontag} class='gallery-icon'>$link$cap2</{$icontag}>";
 			
 			if ( $columns > 0 && ++$i % $columns == 0 )
-				$output .= '<br style="clear: both" />';
+				$output .= '<br style="clear: both; line-height: 1.3em;" />';
 		}
 		//if random chooses news to be at the end
-		if ($cont != '' && $rnd == sizeof($attachments)) {
-			$output .= '<div class="news">'
-			. $cont .
-			'</div>
-			<br style="clear: both;" />';
+		if ($cont != '') {
+			$output .= '<div class="description">'
+						. $cont .
+					   '</div>';
 		}
 	
-		$output .= "
-		<br style='clear: both;' />
-		</div>\n";
+		$output .= '<br style="clear: both;" />
+					</div>';
 	
 		return $output;
 	}

@@ -11,9 +11,9 @@
             <?php
             //init z-index and margin-left values
             $zindex = 100;
-            $marginleft = 100;
+            $marginleft = 160;
             $colId = 0;
-            foreach (get_categories(array('orderby' => 'name')) as $category) {
+            foreach (get_categories(array('order' => 'desc')) as $category) {
             	rewind_posts();
             	$posts_by_cat = query_posts('cat='.$category->term_id);
             	$post_title_chars = str_split($posts_by_cat[0]->post_title);
@@ -27,10 +27,10 @@
             <div id="ct<?php echo $colID; ?>" class="column_title" style="margin-left: <?php echo $marginleft; ?>px; z-index: <?php echo $zindex--; ?>">
             	<div class="column_title_name">
 			<?php
-				$marginleft += 25;
-				foreach ($post_title_chars as $char) {
-					echo $char . '<br>';
-				}
+					$marginleft += 30;
+					foreach ($post_title_chars as $char) {
+						echo $char . '<br>';
+					}
 			?>
 				</div>
 				<div class="column_title_year">
@@ -43,7 +43,7 @@
 			</div>	            
 			<div id="cc<?php echo $colID++;?>" class="column" style="margin-left: <?php echo $marginleft; ?>px; z-index: <?php echo $zindex--; ?>">
             <?php
-            		$marginleft += 270;
+            		$marginleft += 220;
             		while (have_posts()) {
 	            		echo do_shortcode('[gallery_edit columns="1" id='.the_post().' orderby="title" size="thumbnail"]');
             		}

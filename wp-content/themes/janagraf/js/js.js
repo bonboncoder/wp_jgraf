@@ -46,6 +46,18 @@ function enlargeImg(id, src, tWidth, tHeight, medWidth, medHeight) {
 		}, 1000);
 		//add new onclick function to reset the img size to thumb
 		jQuery('#' + id).attr('onclick', 'return resetImg(\'' + id + '\', \'' + tWidth + '\', \'' + tHeight + '\', \'' + medWidth + '\', \'' + medHeight + '\');');
+
+/*	// test for repositioning neighbors	
+		jQuery('*[id*=img]').find('img').each(function() {
+			if ((jQuery(this).offset().top >= jQuery('#' + id).offset().top
+					|| (jQuery(this).offset().top + jQuery(this).height() >= jQuery('#' + id).offset().top))
+					&& jQuery(this).offset().left >= jQuery('#' + id).offset().left + parseInt(tWidth)) {
+				jQuery(this).hide();
+			}
+	    });
+*/	
+	
+	
 	});
 	return false;
 }
