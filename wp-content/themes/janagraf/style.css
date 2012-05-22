@@ -27,11 +27,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	padding: 0;
 	vertical-align: baseline;
 }
-/*
-body {
-	line-height: 1;
-}
-*/
+
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 	font-weight: normal;
@@ -62,7 +58,7 @@ a img {
 -------------------------------------------------------------- */
 
 a, a:hover, a:visited {
-    color: rgb(249,8,1);
+    color: rgb(0,0,0);
     text-decoration: underline;
 }
 
@@ -72,7 +68,6 @@ a:focus {
 
 body {
     color: rgb(0,0,0);
-/*font: normal 13px Arial, Helvetica, sans-serif;*/
     font: normal 62.5%/1 Arial, Helvetica, sans-serif;
     height: 100%;
     letter-spacing: 3px;
@@ -81,15 +76,15 @@ body {
 
 /* red shadow */
 h1 {
-	font: normal 2.5em/1.2 'Courier New', Courier, monospace;
+	font: normal 2.5em/1 Courier, 'Courier New', monospace;
 	letter-spacing: 0.15em;
-	margin-top: 0.2em;
+	margin-top: 0.1em;
 	text-shadow: 0 0 0.05em rgb(249,8,1);
 }
 
 /* green shadow */
 h2 {
-	font: normal 2.5em/1.5 'Courier New', Courier, monospace;
+	font: normal 2.5em/1.5 Courier, 'Courier New', monospace;
 	letter-spacing: 0.15em;
 	margin-top: 0.5em;
 	text-shadow: 0 0 0.05em rgb(0,225,0);
@@ -97,8 +92,9 @@ h2 {
 
 /* yellow shadow */
 h3 {
-	font: normal 2em/1.1 'Courier New', Courier, monospace;
+	font: normal 2em/1 Courier, 'Courier New', monospace;
 	letter-spacing: 0.06em;
+	margin-bottom: 0.5em;
 	text-shadow: 0 0 0.05em rgb(255,237,0);
 }
 
@@ -112,9 +108,13 @@ noscript.gg {
     display: none;
 }
 
+p {
+	margin-bottom: 1.3em;
+}
+
 .column {
 	float: left;
-	padding-top: 20px;
+	padding-top: 2.5em;
 	position: absolute;
 	width: 220px;
 }
@@ -132,7 +132,7 @@ noscript.gg {
 
 .column_title_year {
 	color: rgb(249,8,1);
-	font: normal 3.1em/1.1 'Courier New', Courier, monospace;
+	font: normal 3.1em/1.1 Courier, 'Courier New', monospace;
 	margin-top: 1em;
 	text-align: center;
 }
@@ -144,15 +144,17 @@ noscript.gg {
 }
 
 #info {
-	background-color: rgb(255,255,255);
 	width: 500px;
 	z-index: 200;
 }
 
-#info,
+#info {
+	font: normal 1.1em/1.2 Arial, Helvetica, sans-serif;
+	letter-spacing: 0.1em;
+}
+
 .description {
-	font: normal 1.2em/1.1 Arial, Helvetica, sans-serif;
-	letter-spacing: 0.06em;
+	font: normal 1em/1.3 Arial, Helvetica, sans-serif;
 }
 
 #info,
@@ -163,7 +165,7 @@ noscript.gg {
 
 #info_line,
 #info_link a {
-	font: normal 1.7em 'Courier New', Courier, monospace;
+	font: normal 1.7em Courier, 'Courier New', monospace;
 	letter-spacing: 0.2em;
 }
 
@@ -171,20 +173,23 @@ noscript.gg {
 	color: rgb(0,0,0);
 }
 
-.info_year,
+#info span {
+	font: normal 1em/1.3 Courier, 'Courier New', monospace;
+}
+
 .description span {
-	font: normal 1em 'Courier New', Courier, monospace;
+	font: normal 1.1em/1.3 Courier, 'Courier New', monospace;
 }
 
 .news_head {
-	font: bold 2.3em 'Courier New', Courier, monospace;
+	font: bold 2.3em Courier, 'Courier New', monospace;
 	letter-spacing: 0.1em;
 	text-shadow: 0 0 0.05em rgb(0,0,255);
 	text-transform: uppercase;
 }
 
 .news_what {
-	font: bold 2.1em 'Courier New', Courier, monospace;
+	font: bold 2.1em Courier, 'Courier New', monospace;
 	letter-spacing: 0.1em;
 	text-shadow: 0 0 0.05em rgb(255,237,0);
 }
@@ -217,6 +222,13 @@ noscript.gg {
 
 .shadow_yellow {
 	text-shadow: 0 0 0.05em rgb(255,237,0);
+}
+
+#info span.shadow_blue,
+#info span.shadow_green,
+#info span.shadow_red,
+#info span.shadow_yellow {
+	font: normal 1.2em/1.3 Courier, 'Courier New', monospace;
 }
 
 #sidebar {

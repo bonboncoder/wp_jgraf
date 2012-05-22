@@ -13,7 +13,7 @@
             $zindex = 100;
             $marginleft = 160;
             $colId = 0;
-            foreach (get_categories(array('order' => 'desc')) as $category) {
+            foreach (get_categories(array('exclude' => '11, 12', 'order' => 'desc')) as $category) {
             	rewind_posts();
             	$posts_by_cat = query_posts('cat='.$category->term_id);
             	$post_title_chars = str_split($posts_by_cat[0]->post_title);

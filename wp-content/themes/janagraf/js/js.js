@@ -1,3 +1,5 @@
+var dur = 100;
+
 jQuery(document).ready(function() {
     jQuery('#info').hide();
 });
@@ -5,33 +7,33 @@ jQuery(document).ready(function() {
 function slideHideInfo() {
 	var iHeight = jQuery('#info').height();
 	if (jQuery('#info').is(':hidden')) {		
-		jQuery('#info').slideDown(1000);
+		jQuery('#info').slideDown(dur);
 		jQuery('#ct2').animate({
 			top: '+=' + iHeight
-		}, 1000);
+		}, dur);
 		jQuery('#cc2').animate({
 			top: '+=' + iHeight
-		}, 1000);
+		}, dur);
 		jQuery('#ct3').animate({
 			top: '+=' + iHeight
-		}, 1000);
+		}, dur);
 		jQuery('#cc3').animate({
 			top: '+=' + iHeight 
-		}, 1000);
+		}, dur);
 	} else {
-		jQuery('#info').slideUp(1000);
+		jQuery('#info').slideUp(dur);
 		jQuery('#ct2').animate({
 			top: '-=' + iHeight
-		}, 1000);
+		}, dur);
 		jQuery('#cc2').animate({
 			top: '-=' + iHeight
-		}, 1000);
+		}, dur);
 		jQuery('#ct3').animate({
 			top: '-=' + iHeight
-		}, 1000);
+		}, dur);
 		jQuery('#cc3').animate({
 			top: '-=' + iHeight 
-		}, 1000);
+		}, dur);
 	}
 	return false;
 } 
@@ -43,7 +45,7 @@ function enlargeImg(id, src, tWidth, tHeight, medWidth, medHeight) {
 		jQuery('#' + id).find('img').animate({
 			height: medHeight,
 			width: medWidth
-		}, 1000);
+		}, dur);
 		//add new onclick function to reset the img size to thumb
 		jQuery('#' + id).attr('onclick', 'return resetImg(\'' + id + '\', \'' + tWidth + '\', \'' + tHeight + '\', \'' + medWidth + '\', \'' + medHeight + '\');');
 
@@ -70,6 +72,6 @@ function resetImg(id, tWidth, tHeight, medWidth, medHeight) {
 	jQuery('#' + id).find('img').animate({
 		height: tHeight,
 		width: tWidth
-	}, 1000);
+	}, dur);
 	return false;
 }
