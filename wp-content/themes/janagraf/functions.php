@@ -171,4 +171,27 @@
 	
 		return $output;
 	}
+	
+	
+	/* 
+	 * Custom CSS styles on WYSIWYG Editor – Start 
+	 * Code taken from http://www.wdmac.com/how-to-use-custom-styles-in-the-word-press-post-editor
+	 * Thanks!
+	 * 
+	 */
+	if ( ! function_exists( 'myCustomTinyMCE' ) ) :
+	function myCustomTinyMCE($init) {
+		$init['theme_advanced_buttons2_add_before'] = 'styleselect'; // Adds the buttons at the begining. (theme_advanced_buttons2_add adds them at the end)
+		$init['theme_advanced_styles'] = 'Info Year=info_year,Shadow Blue=shadow_blue,Shadow Green=shadow_green,Shadow Red=shadow_red,Shadow Yellow=shadow_yellow';
+		return $init;
+	}
+	endif;
+	add_filter('tiny_mce_before_init', 'myCustomTinyMCE' );
+	add_filter( 'mce_css', 'tdav_css' );
+	add_editor_style('mycustomstyles.css');
+	// including the Custom CSS on our theme.
+	function mycustomStyles(){
+		wp_enqueue_style( 'myCustomStyles', get_bloginfo('stylesheet_directory').'/editor_styles.css', ",",'all' );
+	}
+	add_action('init', 'mycustomStyles');
 ?>

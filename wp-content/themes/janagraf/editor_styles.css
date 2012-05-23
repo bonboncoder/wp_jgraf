@@ -1,0 +1,26 @@
+#info span.shadow_blue,
+#info span.shadow_green,
+#info span.shadow_red,
+#info span.shadow_yellow {
+	font: normal 1.2em/1.3 Courier, 'Courier New', monospace;
+}
+
+.info_year {
+	font: normal 1em/1.3 Courier, 'Courier New', monospace;
+}
+
+.shadow_blue {
+	text-shadow: 0 0 0.05em rgb(0,0,255);
+}
+
+.shadow_green {
+	text-shadow: 0 0 0.05em rgb(0,225,0);
+}
+
+.shadow_red {
+	text-shadow: 0 0 0.05em rgb(249,8,1);
+}
+
+.shadow_yellow {
+	text-shadow: 0 0 0.05em rgb(255,237,0);
+}
