@@ -23,3 +23,5 @@ license.txt
 .settings/*
 .project
 .buildpath
+/index.php
+/README

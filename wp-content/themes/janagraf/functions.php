@@ -120,24 +120,10 @@
 	
 		$i = 0;
 		$rnd = rand($i, sizeof($attachments)-1);
-		$cont = get_post($id)->post_content;
-		$news_head = get_post_meta($id, 'news_head', true);
-		$news_when = get_post_meta($id, 'news_when', true);
-		$news_what = get_post_meta($id, 'news_what', true);
-		$news_where = get_post_meta($id, 'news_where', true);
-		$news_content = '';
-		if ($news_head != '') {
-			$news_content .= '<span class="news_head">' . $news_head . '</span><br />';
-		}
-		if ($news_when != '') {
-			$news_content .= '<span class="news_when">' . $news_when . '</span><br />';
-		}
-		if ($news_what != '') {
-			$news_content .= '<span class="news_what">' . $news_what . '</span><br />';
-		}
-		if ($news_where != '') {
-			$news_content .= '<span class="news_where">' . $news_where . '</span>';
-		}
+		
+		$material = get_post_meta($id, 'material', true);
+		
+		$news_content = get_post($id)->post_content;
 		foreach ( $attachments as $id => $attachment ) {
 			if ($news_content != '' && $i == $rnd) {
 				$output .= '<div class="news">'
@@ -159,10 +145,9 @@
 			if ( $columns > 0 && ++$i % $columns == 0 )
 				$output .= '<br style="clear: both; line-height: 1.3em;" />';
 		}
-		//if random chooses news to be at the end
-		if ($cont != '') {
-			$output .= '<div class="description">'
-						. $cont .
+		if ($material != '') {
+			$output .= '<div class="description">
+							<span>Material:</span> ' . $material .
 					   '</div>';
 		}
 	
@@ -182,7 +167,7 @@
 	if ( ! function_exists( 'myCustomTinyMCE' ) ) :
 	function myCustomTinyMCE($init) {
 		$init['theme_advanced_buttons2_add_before'] = 'styleselect'; // Adds the buttons at the begining. (theme_advanced_buttons2_add adds them at the end)
-		$init['theme_advanced_styles'] = 'Info Year=info_year,Shadow Blue=shadow_blue,Shadow Green=shadow_green,Shadow Red=shadow_red,Shadow Yellow=shadow_yellow';
+		$init['theme_advanced_styles'] = 'Info Shadow Blue=shadow_blue,Info Shadow Green=shadow_green,Info Shadow Red=shadow_red,Info Shadow Yellow=shadow_yellow,Info Year=info_year,News Arial 12 230=news_arial_12_230,News Arial 16 140=news_arial_16_140,News Arial 22 70=news_arial_22_70,News Arial 22 140=news_arial_22_140,News Courier Bold Blue=news_courier_bold_blue,News Courier Bold Red=news_courier_bold_red,News Courier Bold Yellow=news_courier_bold_yellow,News Courier Reg Blue=news_courier_reg_blue';
 		return $init;
 	}
 	endif;

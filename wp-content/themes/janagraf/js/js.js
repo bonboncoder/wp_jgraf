@@ -8,31 +8,31 @@ function slideHideInfo() {
 	var iHeight = jQuery('#info').height();
 	if (jQuery('#info').is(':hidden')) {		
 		jQuery('#info').slideDown(dur);
-		jQuery('#ct2').animate({
-			top: '+=' + iHeight
-		}, dur);
-		jQuery('#cc2').animate({
-			top: '+=' + iHeight
-		}, dur);
 		jQuery('#ct3').animate({
 			top: '+=' + iHeight
 		}, dur);
 		jQuery('#cc3').animate({
 			top: '+=' + iHeight 
 		}, dur);
+		jQuery('#ct4').animate({
+			top: '+=' + iHeight
+		}, dur);
+		jQuery('#cc4').animate({
+			top: '+=' + iHeight
+		}, dur);
 	} else {
 		jQuery('#info').slideUp(dur);
-		jQuery('#ct2').animate({
-			top: '-=' + iHeight
-		}, dur);
-		jQuery('#cc2').animate({
-			top: '-=' + iHeight
-		}, dur);
 		jQuery('#ct3').animate({
 			top: '-=' + iHeight
 		}, dur);
 		jQuery('#cc3').animate({
 			top: '-=' + iHeight 
+		}, dur);
+		jQuery('#ct4').animate({
+			top: '-=' + iHeight
+		}, dur);
+		jQuery('#cc4').animate({
+			top: '-=' + iHeight
 		}, dur);
 	}
 	return false;

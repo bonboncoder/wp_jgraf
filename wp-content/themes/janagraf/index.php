@@ -11,7 +11,7 @@
             <?php
             //init z-index and margin-left values
             $zindex = 100;
-            $marginleft = 160;
+            $marginleft = 170;
             $colId = 0;
             foreach (get_categories(array('exclude' => '11, 12', 'order' => 'desc')) as $category) {
             	rewind_posts();
@@ -43,7 +43,7 @@
 			</div>	            
 			<div id="cc<?php echo $colID++;?>" class="column" style="margin-left: <?php echo $marginleft; ?>px; z-index: <?php echo $zindex--; ?>">
             <?php
-            		$marginleft += 220;
+            		$marginleft += 230;
             		while (have_posts()) {
 	            		echo do_shortcode('[gallery_edit columns="1" id='.the_post().' orderby="title" size="thumbnail"]');
             		}
