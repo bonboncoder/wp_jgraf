@@ -38,9 +38,9 @@ function slideHideInfo() {
 	return false;
 } 
 
-function enlargeImg(id, src, tWidth, tHeight, medWidth, medHeight) {
+function enlargeImg(id, medSrc, tWidth, tHeight, medWidth, medHeight, loaded) {
 	//swap img src to src of medium sized img
-	jQuery('#' + id).find('img').attr('src', src).load(function() {
+	if (loaded) { //go here if medium image is already loaded
 		//animate img resize to medium dimensions
 		jQuery('#' + id).find('img').animate({
 			height: medHeight,
@@ -48,30 +48,26 @@ function enlargeImg(id, src, tWidth, tHeight, medWidth, medHeight) {
 		}, dur);
 		//add new onclick function to reset the img size to thumb
 		jQuery('#' + id).attr('onclick', 'return resetImg(\'' + id + '\', \'' + tWidth + '\', \'' + tHeight + '\', \'' + medWidth + '\', \'' + medHeight + '\');');
-
-/*	// test for repositioning neighbors	
-		jQuery('*[id*=img]').find('img').each(function() {
-			if ((jQuery(this).offset().top >= jQuery('#' + id).offset().top
-					|| (jQuery(this).offset().top + jQuery(this).height() >= jQuery('#' + id).offset().top))
-					&& jQuery(this).offset().left >= jQuery('#' + id).offset().left + parseInt(tWidth)) {
-				jQuery(this).hide();
-			}
-	    });
-*/	
-	
-	
-	});
+	} else { //go here on first enlargement and wait till medium img is loaded
+		jQuery('#' + id).find('img').attr('src', medSrc).load(function() {
+			jQuery('#' + id).find('img').animate({
+				height: medHeight,
+				width: medWidth
+			}, dur);
+			jQuery('#' + id).attr('onclick', 'return resetImg(\'' + id + '\', \'' + tWidth + '\', \'' + tHeight + '\', \'' + medWidth + '\', \'' + medHeight + '\');');
+		});
+	}
 	return false;
 }
 
 function resetImg(id, tWidth, tHeight, medWidth, medHeight) {
-	var src = jQuery('#' + id).find('img').attr('src');
-	//add new onclick function to enlarge the img
-	jQuery('#' + id).attr('onclick', 'return enlargeImg(\'' + id + '\', \'' + src + '\', \'' + tWidth + '\', \'' + tHeight + '\', \'' + medWidth + '\', \'' + medHeight + '\');');
+	var medSrc = jQuery('#' + id).find('img').attr('src');
 	//animate img resize to thumb dimension
 	jQuery('#' + id).find('img').animate({
 		height: tHeight,
 		width: tWidth
 	}, dur);
+	//add new onclick function to enlarge the img
+	jQuery('#' + id).attr('onclick', 'return enlargeImg(\'' + id + '\', \'' + medSrc + '\', \'' + tWidth + '\', \'' + tHeight + '\', \'' + medWidth + '\', \'' + medHeight + '\', true);');
 	return false;
 }

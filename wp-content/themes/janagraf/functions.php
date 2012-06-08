@@ -134,7 +134,7 @@
 			$thumb_img_url = wp_get_attachment_image_src($id, 'thumbnail');
 			$medium_img_url = wp_get_attachment_image_src($id, 'medium');
 			$cap = wptexturize($attachment->post_content);
-			$link = '<a href="' . $medium_img_url[0] . '" target="_blank" title="' . $cap . '" id="img' . $img_instance . '" onclick="return enlargeImg(\'img'. $img_instance++ . '\', \'' . $medium_img_url[0] .'\', \'' . $thumb_img_url[1] . '\', \'' . $thumb_img_url[2] .'\', \'' . $medium_img_url[1] . '\', \'' . $medium_img_url[2] . '\');">'
+			$link = '<a href="' . $medium_img_url[0] . '" target="_blank" title="' . $cap . '" id="img' . $img_instance . '" onclick="return enlargeImg(\'img'. $img_instance++ . '\', \'' . $medium_img_url[0] .'\', \'' . $thumb_img_url[1] . '\', \'' . $thumb_img_url[2] .'\', \'' . $medium_img_url[1] . '\', \'' . $medium_img_url[2] . '\', false);">'
 						. wp_get_attachment_image($id, 'thumbnail') .
 					'</a>';
 			$cap2 = "<{$captiontag} class='gallery-caption'>"
@@ -146,8 +146,8 @@
 				$output .= '<br style="clear: both; line-height: 1.3em;" />';
 		}
 		if ($material != '') {
-			$output .= '<div class="description">
-							<span>Material:</span> ' . $material .
+			$output .= '<div class="description">'
+							. $material .
 					   '</div>';
 		}
 	

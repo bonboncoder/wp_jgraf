@@ -1,4 +1,4 @@
-<span id="info_line">Jana Graf Jewellery <a href="mailto:post@janagraf.com">post@janagraf.com</a> (+49)0221.54813483</span> <span id="info_link"><a href="#" onclick="return slideHideInfo();">Info</a></span>
+<span id="info_line"><?php bloginfo( 'name' ); ?> <a href="mailto:post@janagraf.com">post@janagraf.com</a> (+49)0221.54813483</span> <span id="info_link"><a href="#" onclick="return slideHideInfo();">Info</a></span>
 <div id="info">
 	<h1>Jana Graf</h1>
 	<h3>born 1986</h3>
