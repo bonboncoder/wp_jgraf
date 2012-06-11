@@ -169,6 +169,7 @@ p {
 #info_link a {
 	font: normal 18px Courier, 'Courier New', monospace;
 	letter-spacing: 0.2em;
+	white-space: nowrap;
 }
 
 #info_link {

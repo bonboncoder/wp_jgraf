@@ -39,21 +39,24 @@ function slideHideInfo() {
 } 
 
 function enlargeImg(id, medSrc, tWidth, tHeight, medWidth, medHeight, loaded) {
+	var targetImg = jQuery('#' + id).find('img');
 	//swap img src to src of medium sized img
 	if (loaded) { //go here if medium image is already loaded
 		//animate img resize to medium dimensions
-		jQuery('#' + id).find('img').animate({
+		targetImg.animate({
 			height: medHeight,
 			width: medWidth
 		}, dur);
+		scrollTo(id, medWidth, medHeight);
 		//add new onclick function to reset the img size to thumb
 		jQuery('#' + id).attr('onclick', 'return resetImg(\'' + id + '\', \'' + tWidth + '\', \'' + tHeight + '\', \'' + medWidth + '\', \'' + medHeight + '\');');
 	} else { //go here on first enlargement and wait till medium img is loaded
-		jQuery('#' + id).find('img').attr('src', medSrc).load(function() {
-			jQuery('#' + id).find('img').animate({
+		targetImg.attr('src', medSrc).load(function() {
+			targetImg.animate({
 				height: medHeight,
 				width: medWidth
 			}, dur);
+			scrollTo(id, medWidth, medHeight);
 			jQuery('#' + id).attr('onclick', 'return resetImg(\'' + id + '\', \'' + tWidth + '\', \'' + tHeight + '\', \'' + medWidth + '\', \'' + medHeight + '\');');
 		});
 	}
@@ -70,4 +73,13 @@ function resetImg(id, tWidth, tHeight, medWidth, medHeight) {
 	//add new onclick function to enlarge the img
 	jQuery('#' + id).attr('onclick', 'return enlargeImg(\'' + id + '\', \'' + medSrc + '\', \'' + tWidth + '\', \'' + tHeight + '\', \'' + medWidth + '\', \'' + medHeight + '\', true);');
 	return false;
+}
+
+function scrollTo(id, medWidth, medHeight) {
+	var targetImg = jQuery('#' + id).find('img');
+	//if (targetImg.offset().left + medWidth > jQuery(window).)
+	jQuery('html,body').animate({
+		scrollLeft: targetImg.offset().left - 200,
+		scrollTop: targetImg.offset().top - 200
+	}, dur);
 }
