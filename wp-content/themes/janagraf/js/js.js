@@ -2,6 +2,7 @@ var dur = 100;
 
 jQuery(document).ready(function() {
     jQuery('#info').hide();
+    decodeM();
 });
 
 function slideHideInfo() {
@@ -82,4 +83,10 @@ function scrollTo(id, medWidth, medHeight) {
 		scrollLeft: targetImg.offset().left - 200,
 		scrollTop: targetImg.offset().top - 200
 	}, dur);
+}
+
+function decodeM() {
+	var d = 'janagraf.com';
+	var n = 'post';
+	jQuery('#m').text(n + '@' + d);
 }

@@ -133,7 +133,7 @@ p {
 .column_title_year {
 	color: rgb(249,8,1);
 	font: normal 33px/1.1 Courier, 'Courier New', monospace;
-	margin-top: 10px;
+	margin-top: 36px;
 	text-align: center;
 }
 
@@ -144,12 +144,12 @@ p {
 }
 
 .description {
-	font: normal 12px/1.2 Arial, Helvetica, sans-serif;
+	font: normal 11px/1.2 Arial, Helvetica, sans-serif;
 	letter-spacing: 0.06em;
 }
 
 .description span {
-	font: normal 12px/1.2 Courier, 'Courier New', monospace;
+	font: normal 11px/1.2 Courier, 'Courier New', monospace;
 }
 
 #info {
@@ -166,7 +166,8 @@ p {
 }
 
 #info_line,
-#info_link a {
+#info_link a,
+#info_link #m {
 	font: normal 18px Courier, 'Courier New', monospace;
 	letter-spacing: 0.2em;
 	white-space: nowrap;
@@ -176,8 +177,8 @@ p {
 	top: 0;
 }
 
-#info_link a {
-	color: rgb(0,0,0);
+#m {
+	text-decoration: underline;
 }
 
 .news {
@@ -199,5 +200,3 @@ p {
     position: absolute;
     top: 75px;
 }
-
-@import url('editor_styles.css');
