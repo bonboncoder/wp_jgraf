@@ -24,8 +24,8 @@
             	}
             	if (have_posts()) {
             ?>
-            <div id="ct<?php echo $colID; ?>" class="column_title" style="margin-left: <?php echo $marginleft; ?>px; z-index: <?php echo $zindex--; ?>">
-            	<div class="column_title_name">
+            <div id="ct<?php echo $colID; ?>" class="column-title" style="margin-left: <?php echo $marginleft; ?>px; z-index: <?php echo $zindex--; ?>">
+            	<div class="column-title-name">
 			<?php
 					$marginleft += 30;
 					foreach ($post_title_chars as $char) {
@@ -33,7 +33,7 @@
 					}
 			?>
 				</div>
-				<div class="column_title_year">
+				<div class="column-title-year">
 			<?php
 				foreach ($post_tag_chars as $char) {
 					echo $char . '<br>';

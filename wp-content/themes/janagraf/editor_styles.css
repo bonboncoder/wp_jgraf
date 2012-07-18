@@ -1,72 +1,72 @@
-#info span.shadow_blue,
-#info span.shadow_green,
-#info span.shadow_red,
-#info span.shadow_yellow {
+#info span.shadow-blue,
+#info span.shadow-green,
+#info span.shadow-red,
+#info span.shadow-yellow {
 	font: normal 12px/1.2 Courier, 'Courier New', monospace;
 	letter-spacing: 0.25em;
 }
 
-.info_year {
+.info-year {
 	font: normal 12px/1.2 Courier, 'Courier New', monospace;
 }
 
-.news_arial_12_230 {
+.news-arial-12-230 {
 	font: normal 12px Arial, Helvetica, sans-serif;
 	letter-spacing: 0.23em;
 }
 
-.news_arial_16_140 {
+.news-arial-16-140 {
 	font: normal 16px Arial, Helvetica, sans-serif;
 	letter-spacing: 0.14em;
 }
 
-.news_arial_22_70 {
+.news-arial-22-70 {
 	font: normal 22px Arial, Helvetica, sans-serif;
 	letter-spacing: 0.07em;
 }
 
-.news_arial_22_140 {
+.news-arial-22-140 {
 	font: normal 22px Arial, Helvetica, sans-serif;
 	letter-spacing: 0.14em;
 }
 
-.news_courier_bold_blue {
+.news-courier-bold-blue {
 	font: bold 27px Courier, 'Courier New', monospace;
 	letter-spacing: 0.2em;
-	text-shadow: 0 0 0.05em rgb(0,0,255);
+	text-shadow: 0 0 0.1em #0000FF;
 	text-transform: uppercase;
 }
 
-.news_courier_bold_red {
+.news-courier-bold-red {
 	font: bold 24px Courier, 'Courier New', monospace;
 	letter-spacing: 0.15em;
-	text-shadow: 0 0 0.05em rgb(249,8,1);
+	text-shadow: 0 0 0.1em #F90801;
 }
 
-.news_courier_bold_yellow {
+.news-courier-bold-yellow {
 	font: bold 27px Courier, 'Courier New', monospace;
 	letter-spacing: 0.15em;
-	text-shadow: 0 0 0.05em rgb(255,237,0);
+	text-shadow: 0 0 0.1em #FFED00;
 }
 
-.news_courier_reg_blue {
+.news-courier-reg-blue {
 	font: normal 19px Courier, 'Courier New', monospace;
 	letter-spacing: 0.17em;
-	text-shadow: 0 0 0.05em rgb(0,0,255);
+	text-shadow: 0 0 0.1em #0000FF;
 }
 
-.shadow_blue {
-	text-shadow: 0 0 0.05em rgb(0,0,255);
+.shadow-blue {
+	text-shadow: 0 0 0.1em #0000FF;
 }
 
-.shadow_green {
-	text-shadow: 0 0 0.05em rgb(0,225,0);
+.shadow-green {
+	text-shadow: 0 0 0.1em #00E100;
 }
 
-.shadow_red {
-	text-shadow: 0 0 0.05em rgb(249,8,1);
+.shadow-red {
+	text-shadow: 0 0 0.1em #F90801;
 }
 
-.shadow_yellow {
-	text-shadow: 0 0 0.05em rgb(255,237,0);
+.shadow-yellow {
+	text-shadow: 0 0 0.1em #FFED00;
 }

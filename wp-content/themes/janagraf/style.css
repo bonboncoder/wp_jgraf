@@ -58,7 +58,7 @@ a img {
 -------------------------------------------------------------- */
 
 a, a:hover, a:visited {
-    color: rgb(0,0,0);
+    color: #000;
     text-decoration: underline;
 }
 
@@ -67,7 +67,7 @@ a:focus {
 }
 
 body {
-    color: rgb(0,0,0);
+    color: #000;
     font: normal 12px/1.2 Arial, Helvetica, sans-serif;
     height: 100%;
     letter-spacing: 2px;
@@ -79,7 +79,7 @@ h1 {
 	font: normal 27px/1 Courier, 'Courier New', monospace;
 	letter-spacing: 0.15em;
 	margin-top: 0.1em;
-	text-shadow: 0 0 0.05em rgb(249,8,1);
+	text-shadow: 0 0 0.1em #F90801;
 }
 
 /* green shadow */
@@ -87,7 +87,7 @@ h2 {
 	font: normal 27px/1.5 Courier, 'Courier New', monospace;
 	letter-spacing: 0.15em;
 	margin-top: 0.5em;
-	text-shadow: 0 0 0.05em rgb(0,225,0);
+	text-shadow: 0 0 0.1em #00E100;
 }
 
 /* yellow shadow */
@@ -95,13 +95,13 @@ h3 {
 	font: normal 20px/1 Courier, 'Courier New', monospace;
 	letter-spacing: 0.06em;
 	margin-bottom: 0.5em;
-	text-shadow: 0 0 0.05em rgb(255,237,0);
+	text-shadow: 0 0 0.1em #FFED00;
 }
 
 noscript {
     left: 30px;
     position: absolute;
-    top: 0px;
+    	top: 0px;
 }
 
 noscript.gg {
@@ -119,28 +119,28 @@ p {
 	width: 230px;
 }
 
-.column_title {
+.column-title {
 	float: left;
 	position: absolute;
 	width: 25px;
 }
 
-.column_title_name {
+.column-title-name {
 	font: normal 33px/1.1 Arial, Helvetica, sans-serif;
 	text-align: center;
 }
 
-.column_title_year {
-	color: rgb(249,8,1);
+.column-title-year {
+	color: #F90801;
 	font: normal 33px/1.1 Courier, 'Courier New', monospace;
 	margin-top: 36px;
 	text-align: center;
 }
 
 #content {
-    background-color: rgb(255,255,255);
+    background-color: #FFF;
     position: absolute;
-    top: 170px;
+    	top: 170px;
 }
 
 .description {
@@ -160,20 +160,20 @@ p {
 }
 
 #info,
-#info_link {
+#info-link {
 	left: 870px;
 	position: absolute;
 }
 
-#info_line,
-#info_link a,
-#info_link #m {
+#info-line,
+#info-link a,
+#info-link #m {
 	font: normal 18px Courier, 'Courier New', monospace;
 	letter-spacing: 0.2em;
 	white-space: nowrap;
 }
 
-#info_link {
+#info-link {
 	top: 0;
 }
 
@@ -196,7 +196,7 @@ p {
 }
 
 #sidebar {
-	left: 80px;
     position: absolute;
-    top: 75px;
+    	top: 75px;
+		left: 80px;
 }
