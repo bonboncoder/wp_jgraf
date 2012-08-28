@@ -167,7 +167,7 @@
 	if ( ! function_exists( 'myCustomTinyMCE' ) ) :
 	function myCustomTinyMCE($init) {
 		$init['theme_advanced_buttons2_add_before'] = 'styleselect'; // Adds the buttons at the begining. (theme_advanced_buttons2_add adds them at the end)
-		$init['theme_advanced_styles'] = 'Info Shadow Blue=shadow_blue,Info Shadow Green=shadow_green,Info Shadow Red=shadow_red,Info Shadow Yellow=shadow_yellow,Info Year=info_year,News Arial 12 230=news_arial_12_230,News Arial 16 140=news_arial_16_140,News Arial 22 70=news_arial_22_70,News Arial 22 140=news_arial_22_140,News Courier Bold Blue=news_courier_bold_blue,News Courier Bold Red=news_courier_bold_red,News Courier Bold Yellow=news_courier_bold_yellow,News Courier Reg Blue=news_courier_reg_blue';
+		$init['theme_advanced_styles'] = 'Info Shadow Blue=shadow-blue,Info Shadow Green=shadow-green,Info Shadow Red=shadow-red,Info Shadow Yellow=shadow-yellow,Info Year=info-year,News Arial 12 230=news-arial-12-230,News Arial 16 140=news-arial-16-140,News Arial 22 70=news-arial-22-70,News Arial 22 140=news-arial-22-140,News Courier Bold Blue=news-courier-bold-blue,News Courier Bold Red=news-courier-bold-red,News Courier Bold Yellow=news-courier-bold-yellow,News Courier Reg Blue=news-courier-reg-blue';
 		return $init;
 	}
 	endif;
