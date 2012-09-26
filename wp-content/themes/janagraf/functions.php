@@ -53,7 +53,7 @@
 				'columns'    => 3,
 				'size'       => 'thumbnail',
 				'include'    => '',
-				'exclude'    => ''
+				'exclude'    => get_post_thumbnail_id($id)
 		), $attr));
 	
 		$id = intval($id);
@@ -75,8 +75,8 @@
 			$attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
 		}
 	
-		if ( empty($attachments) )
-			return '';
+	//	if ( empty($attachments) )
+	//		return '';
 	
 		if ( is_feed() ) {
 			$output = "\n";
@@ -122,20 +122,21 @@
 		$rnd = rand($i, sizeof($attachments)-1);
 		
 		$material = get_post_meta($id, 'material', true);
+		$video = get_post_meta($id, 'video', true);
 		
 		$news_content = get_post($id)->post_content;
-		foreach ( $attachments as $id => $attachment ) {
+		foreach ( $attachments as $aid => $attachment ) {
 			if ($news_content != '' && $i == $rnd) {
 				$output .= '<div class="news">'
-							. $news_content .
+								. $news_content .
 							'</div>
 							<br style="clear: both; line-height: 1.3em;" />';
 			}
-			$thumb_img_url = wp_get_attachment_image_src($id, 'thumbnail');
-			$medium_img_url = wp_get_attachment_image_src($id, 'medium');
+			$thumb_img_url = wp_get_attachment_image_src($aid, 'thumbnail');
+			$medium_img_url = wp_get_attachment_image_src($aid, 'medium');
 			$cap = wptexturize($attachment->post_content);
 			$link = '<a href="' . $medium_img_url[0] . '" target="_blank" title="' . $cap . '" id="img' . $img_instance . '" onclick="return enlargeImg(\'img'. $img_instance++ . '\', \'' . $medium_img_url[0] .'\', \'' . $thumb_img_url[1] . '\', \'' . $thumb_img_url[2] .'\', \'' . $medium_img_url[1] . '\', \'' . $medium_img_url[2] . '\', false);">'
-						. wp_get_attachment_image($id, 'thumbnail') .
+						. wp_get_attachment_image($aid, 'thumbnail') .
 					'</a>';
 			$cap2 = "<{$captiontag} class='gallery-caption'>"
 						. $cap .
@@ -144,6 +145,17 @@
 			
 			if ( $columns > 0 && ++$i % $columns == 0 )
 				$output .= '<br style="clear: both; line-height: 1.3em;" />';
+		}
+		if ($video != '') {
+			$output .= '<div id="video' . $id . '" class="video">
+							<a href="#" onclick="return enlargeVid(' . $id . ');">'
+							. get_the_post_thumbnail($id, 'thumbnail') .
+							'</a>
+							<div id="vid' . $id . '">'
+							. $video .
+					   		'</div>
+					    </div>
+						<br style="clear: both; line-height: 1.3em;" />';
 		}
 		if ($material != '') {
 			$output .= '<div class="description">'

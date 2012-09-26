@@ -1,7 +1,7 @@
-#info span.shadow-blue,
-#info span.shadow-green,
-#info span.shadow-red,
-#info span.shadow-yellow {
+#info .shadow-blue,
+#info .shadow-green,
+#info .shadow-red,
+#info .shadow-yellow {
 	font: normal 12px/1.2 Courier, 'Courier New', monospace;
 	letter-spacing: 0.25em;
 }

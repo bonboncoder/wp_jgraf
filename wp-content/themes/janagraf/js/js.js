@@ -88,5 +88,19 @@ function scrollTo(id, medWidth, medHeight) {
 function decodeM() {
 	var d = 'janagraf.com';
 	var n = 'post';
-	jQuery('#m').text(n + '@' + d);
+	jQuery('#m').html('<a href="mailto:' + n + '@' + d + '">' + n + '@' + d + '</a>');
+}
+
+function enlargeVid(id) {
+	jQuery('#vid' + id).css('padding-right', '50px');
+	jQuery('#vid' + id).show(dur, function() {
+		var hObj = jQuery('#vid' + id + ' object').attr('height');
+		var hImg = jQuery('#video' + id + ' a img').attr('height');
+		var hDiff = hObj - hImg;
+		jQuery('#video' + id).siblings('div.description').animate({
+			marginTop: '+=' + hDiff
+		}, dur);
+	});
+	scrollTo('video' + id, 420, 420);
+	return false;
 }

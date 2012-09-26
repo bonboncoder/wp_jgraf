@@ -98,6 +98,11 @@ h3 {
 	text-shadow: 0 0 0.1em #FFED00;
 }
 
+h4 {
+    font: bold 14px/2.5 Courier,'Courier New',monospace;
+    letter-spacing: normal;
+}
+
 noscript {
     left: 30px;
     position: absolute;
@@ -181,6 +186,10 @@ p {
 	text-decoration: underline;
 }
 
+#m a {
+	color: #F90801;
+}
+
 .news {
 	line-height: 23px;
 }
@@ -199,4 +208,14 @@ p {
     position: absolute;
     	top: 75px;
 		left: 80px;
+}
+
+.video {
+	position: relative;
+}
+
+.video div {
+	display: none;
+	position: absolute;
+	top: 0;
 }
