@@ -2,7 +2,7 @@
 Theme Name: janagraf
 Theme URI: http://bonbonbuero.de
 Description: janagraf.com
-Version: 1.0.1
+Version: 1.1.0
 Author: coder@bonbonbuero.de
 Author URI: http://bonbonbuero.de
 Tags: bonbonbuero
@@ -99,7 +99,7 @@ h3 {
 }
 
 h4 {
-    font: bold 14px/2.5 Courier,'Courier New',monospace;
+    font: normal 14px/2.5 Courier,'Courier New',monospace;
     letter-spacing: normal;
 }
 
@@ -184,10 +184,6 @@ p {
 
 #m {
 	text-decoration: underline;
-}
-
-#m a {
-	color: #F90801;
 }
 
 .news {
