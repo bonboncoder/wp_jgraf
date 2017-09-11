@@ -1,4 +1,4 @@
-<span id="info-line"><?php bloginfo( 'name' ); ?> <span id="m">postatjanagrafcom</span> (+49)0221.54813483</span> <span id="info-link"><a href="#" onclick="return slideHideInfo();">Info</a></span>
+<span id="info-line"><?php bloginfo( 'name' ); ?> <span id="m">postatjanagrafcom</span> (+49)0221.26062401</span> <span id="info-link"><a href="#" onclick="return slideHideInfo();">Info</a></span>
 <div id="info">
 	<h4>If you are interested in a product drop me a line!</h4>
 <?php
@@ -20,6 +20,6 @@
 	$exhi_post = get_posts('category=12&numberposts=1');
 	foreach ($exhi_post as $exhi) : setup_postdata($exhi);
 		the_content();
-	endforeach; 
+	endforeach;
 ?>
 </div>
