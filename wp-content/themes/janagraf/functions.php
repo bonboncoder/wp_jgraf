@@ -3,15 +3,15 @@
 	register_nav_menus( array(
 		'primary' => __( 'Primary Navigation', 'leftnavi' ),
 	) );
-        
+
 	// Thumbnails
 	add_theme_support( 'post-thumbnails' );
-	
+
 	// Gallery shortcode remove inline css
 	add_filter( 'use_default_gallery_style', '__return_false' );
-	
+
 	add_shortcode('gallery_edit', 'gallery_shortcode_edit');
-	
+
 	/**
 	 * The Gallery shortcode.
 	 *
@@ -25,24 +25,24 @@
 	 */
 	function gallery_shortcode_edit($attr) {
 		global $post;
-	
+
 		static $instance = 0;
 		$instance++;
-		
+
 		static $img_instance = 0;
-		
+
 		// Allow plugins/themes to override the default gallery template.
 		$output = apply_filters('post_gallery', '', $attr);
 		if ( $output != '' )
 			return $output;
-	
+
 		// We're trusting author input, so let's at least make sure it looks like a valid orderby statement
 		if ( isset( $attr['orderby'] ) ) {
 			$attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
 			if ( !$attr['orderby'] )
 				unset( $attr['orderby'] );
 		}
-	
+
 		extract(shortcode_atts(array(
 				'order'      => 'ASC',
 				'orderby'    => 'menu_order ID',
@@ -55,15 +55,15 @@
 				'include'    => '',
 				'exclude'    => get_post_thumbnail_id($id)
 		), $attr));
-	
+
 		$id = intval($id);
 		if ( 'RAND' == $order )
 			$orderby = 'none';
-	
+
 		if ( !empty($include) ) {
 			$include = preg_replace( '/[^0-9,]+/', '', $include );
 			$_attachments = get_posts( array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
-	
+
 			$attachments = array();
 			foreach ( $_attachments as $key => $val ) {
 				$attachments[$val->ID] = $_attachments[$key];
@@ -74,25 +74,25 @@
 		} else {
 			$attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
 		}
-	
+
 	//	if ( empty($attachments) )
 	//		return '';
-	
+
 		if ( is_feed() ) {
 			$output = "\n";
 			foreach ( $attachments as $att_id => $attachment )
 				$output .= wp_get_attachment_link($att_id, $size, true) . "\n";
 			return $output;
 		}
-	
+
 		$itemtag = tag_escape($itemtag);
 		$captiontag = tag_escape($captiontag);
 		$columns = intval($columns);
 		$itemwidth = $columns > 0 ? floor(100/$columns) : 100;
 		$float = is_rtl() ? 'right' : 'left';
-	
+
 		$selector = "gallery-{$instance}";
-	
+
 		$gallery_style = $gallery_div = '';
 		if ( apply_filters( 'use_default_gallery_style', true ) )
 			$gallery_style = "
@@ -117,13 +117,13 @@
 		$size_class = sanitize_html_class( $size );
 		$gallery_div = "<div id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} gallery-size-{$size_class}'>";
 		$output = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
-	
+
 		$i = 0;
 		$rnd = rand($i, sizeof($attachments)-1);
-		
+
 		$material = get_post_meta($id, 'material', true);
 		$video = get_post_meta($id, 'video', true);
-		
+
 		$news_content = get_post($id)->post_content;
 		foreach ( $attachments as $aid => $attachment ) {
 			if ($news_content != '' && $i == $rnd) {
@@ -142,7 +142,7 @@
 						. $cap .
 					"</{$captiontag}>";
 			$output .= "<{$icontag} class='gallery-icon'>$link$cap2</{$icontag}>";
-			
+
 			if ( $columns > 0 && ++$i % $columns == 0 )
 				$output .= '<br style="clear: both; line-height: 1.3em;" />';
 		}
@@ -162,19 +162,19 @@
 							. $material .
 					   '</div>';
 		}
-	
+
 		$output .= '<br style="clear: both;" />
 					</div>';
-	
+
 		return $output;
 	}
-	
-	
-	/* 
-	 * Custom CSS styles on WYSIWYG Editor – Start 
+
+
+	/*
+	 * Custom CSS styles on WYSIWYG Editor – Start
 	 * Code taken from http://www.wdmac.com/how-to-use-custom-styles-in-the-word-press-post-editor
 	 * Thanks!
-	 * 
+	 *
 	 */
 	if ( ! function_exists( 'myCustomTinyMCE' ) ) :
 	function myCustomTinyMCE($init) {
@@ -191,4 +191,9 @@
 		wp_enqueue_style( 'myCustomStyles', get_bloginfo('stylesheet_directory').'/editor_styles.css', ",",'all' );
 	}
 	add_action('init', 'mycustomStyles');
+
+	/*
+	 * Disable srcset. Do not know why it's working locally and not on the website.
+	 */ 
+	add_filter( 'wp_calculate_image_srcset', '__return_false' );
 ?>
